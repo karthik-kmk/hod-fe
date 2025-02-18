@@ -1,0 +1,7 @@
+.year{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: green;
+    margin-left: 400px;
+}

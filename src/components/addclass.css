@@ -1,0 +1,11 @@
+.class-main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+    background-color: yellow;
+    padding: 20px;
+    margin-left: 400px;
+    margin-top: 30px;
+
+}

@@ -1,0 +1,8 @@
+.teachersadd-main{
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    flex-direction: column;
+    width:300px;
+    margin-left: 400px;
+}
