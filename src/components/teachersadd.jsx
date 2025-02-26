@@ -66,7 +66,7 @@ const AddTeacher = () => {
       <h1>Add Teacher</h1>
 
       {/* Manual Input */}
-      <div style={{ marginBottom: '10px' }}>
+      <div style={{ marginCenter: '10px' }}>
         <input
           type="text"
           value={teacherName}

@@ -1,8 +1,40 @@
-.teachersadd-main{
+.teachersadd-main {
     display: flex;
     justify-content: center;
-    background-color: red;
+    background-color: white; /* Changed from rgb(101, 209, 223) to white */
     flex-direction: column;
-    width:300px;
+    width: 450px; /* Increased from 300px for better form layout */
     margin-left: 400px;
+    padding: 24px; /* Added padding */
+    border-radius: 8px; /* Added rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+    border-top: 4px solid #3a7bd5; /* Added accent border */
+}
+
+/* Additional styling that complements your original CSS */
+.teachersadd-main input,
+.teachersadd-main select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e1e5eb;
+    border-radius: 6px;
+}
+
+.teachersadd-main button {
+    background: linear-gradient(135deg, #3a7bd5, #3a6073);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.teachersadd-main label {
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+    color: #3a6073;
 }

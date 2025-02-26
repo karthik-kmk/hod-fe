@@ -1,11 +1,56 @@
-.class-main{
+.class-main {
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: 500px;
-    background-color: yellow;
+    background-color: white; /* Changed from rgb(25, 225, 228) to white */
     padding: 20px;
     margin-left: 400px;
     margin-top: 30px;
+    border-radius: 8px; /* Added rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+    border-top: 4px solid #3a6073; /* Added accent border in a darker shade */
+}
 
+/* Additional styling that complements your original CSS */
+.class-main input,
+.class-main select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e1e5eb;
+    border-radius: 6px;
+}
+
+.class-main button {
+    background: linear-gradient(135deg, #3a6073, #1a3a6a);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.class-main label {
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+    color: #3a6073;
+}
+
+.class-main .file-upload {
+    border: 2px dashed #e1e5eb;
+    padding: 15px;
+    text-align: center;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.class-main .file-upload:hover {
+    border-color: #3a6073;
+    background-color: rgba(58, 96, 115, 0.05);
 }
