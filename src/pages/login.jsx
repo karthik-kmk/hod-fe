@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { API_BASE_URL } from "../constants";
 const Login = () => {
   const [usn, setUsn] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +11,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://127.0.0.1:5000/login", {
+      const response = await axios.post(`${API_BASE_URL}/login`, {
         usn,
         password,
       });

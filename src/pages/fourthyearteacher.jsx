@@ -20,7 +20,7 @@ const FourthYearTeacher = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/get-teachers-api")
+      .get(`${API_BASE_URL}/get-teachers-api`)
       .then((response) => {
         setTeachers(response.data);
       })
@@ -59,7 +59,7 @@ const FourthYearTeacher = () => {
   // Fetch students from Flask API based on the table name
   const fetchStudents = (tableName) => {
     axios
-      .get(`http://127.0.0.1:5000/modal-fetch-students?table=${tableName}`)
+      .get(`${API_BASE_URL}/modal-fetch-students?table=${tableName}`)
       .then((response) => {
         setStudents(response.data);
       })

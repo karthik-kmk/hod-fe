@@ -21,6 +21,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import { gsap } from "gsap";
 import Papa from "papaparse";
+import { API_BASE_URL } from "../constants";
 
 const SecondYearTeacher = () => {
   const location = useLocation();
@@ -45,7 +46,7 @@ const SecondYearTeacher = () => {
   // Fetch teachers on component mount
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/get-teachers-api")
+      .get(`${API_BASE_URL}/get-teachers-api`)
       .then((response) => {
         setTeachers(response.data);
       })
@@ -58,7 +59,7 @@ const SecondYearTeacher = () => {
   // Fetch all tables on component mount
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/get-all-tables")
+      .get(`${API_BASE_URL}/get-all-tables`)
       .then((response) => {
         setAllTables(response.data.tables);
       })
@@ -84,7 +85,7 @@ const SecondYearTeacher = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/fetch-table-data?table_name=${tableName}`
+        `${API_BASE_URL}/fetch-table-data?table_name=${tableName}`
       );
       setTableData(response.data.data);
     } catch (error) {
@@ -115,7 +116,7 @@ const SecondYearTeacher = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/upload-csv-quiz?table_name=${selectedTable}`,
+        `${API_BASE_URL}/upload-csv-quiz?table_name=${selectedTable}`,
         formData,
         {
           headers: {
@@ -142,7 +143,7 @@ const SecondYearTeacher = () => {
   const fetchStudentData = (tableName) => {
     setLoading(true);
     axios
-      .get(`http://127.0.0.1:5000/modal-fetch-students?table=${tableName}`)
+      .get(`${API_BASE_URL}/modal-fetch-students?table=${tableName}`)
       .then((response) => {
         setStudents(response.data);
         setLoading(false);
@@ -181,7 +182,7 @@ const SecondYearTeacher = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/create_quiz_table",
+        `${API_BASE_URL}/create_quiz_table`,
         {
           table_name: `${selectedSubject}_${tableName}`,
         },

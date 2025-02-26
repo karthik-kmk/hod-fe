@@ -4,7 +4,7 @@ import axios from "axios";
 import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close"; // Import CloseIcon from Material UI
 import gsap from "gsap"; // Import GSAP
-
+import { API_BASE_URL } from "../constants";
 const ThirdYearTeacher = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -22,7 +22,7 @@ const ThirdYearTeacher = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/get-teachers-api")
+      .get(`${API_BASE_URL}/get-teachers-api`)
       .then((response) => {
         setTeachers(response.data);
       })
@@ -56,7 +56,7 @@ const ThirdYearTeacher = () => {
     const tableName = `3_${subject.split("_")[1]}_subjects`; // Add "_subjects" suffix to table name
 
     axios
-      .get(`http://127.0.0.1:5000/modal-fetch-students?table=${tableName}`)
+      .get(`${API_BASE_URL}/modal-fetch-students?table=${tableName}`)
       .then((response) => {
         setStudents(response.data);
         setLoading(false);

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import Sidebar from "../components/sidebar";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { API_BASE_URL } from "../constants";
 import {
   Dialog,
   DialogActions,
@@ -41,7 +42,7 @@ const SecondYear = () => {
   useEffect(() => {
     const fetchTables = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/get_tables", {
+        const response = await axios.get(`${API_BASE_URL}/get_tables`, {
           params: { year: year },
         });
         setTableList(response.data.tables);
@@ -53,7 +54,7 @@ const SecondYear = () => {
 
     const fetchTeachers = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/get_teachers");
+        const response = await axios.get(`${API_BASE_URL}/get_teachers`);
         setTeachers(response.data.teachers);
       } catch (error) {
         setMessage(
@@ -67,7 +68,7 @@ const SecondYear = () => {
 
   const handleDeleteTable = async (table) => {
     try {
-      const response = await axios.post("http://127.0.0.1:5000/delete_table", {
+      const response = await axios.post(`${API_BASE_URL}/delete_table`, {
         table_name: table,
       });
       setMessage(response.data.message);
@@ -90,7 +91,7 @@ const SecondYear = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/create_class_subjects",
+        `${API_BASE_URL}/create_class_subjects`,
         {
           table_name: selectedTable,
           subjects: subjects, // Sending both subject name and teacher
@@ -113,7 +114,7 @@ const SecondYear = () => {
 
     try {
       const tableResponse = await axios.get(
-        "http://127.0.0.1:5000/get_students_data",
+        `${API_BASE_URL}/get_students_data`,
         {
           params: { table_name: `${table}_subjects` },
         }
@@ -149,7 +150,7 @@ const SecondYear = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/upload_students",
+        `${API_BASE_URL}/upload_students`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

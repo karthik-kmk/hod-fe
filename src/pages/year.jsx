@@ -9,7 +9,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-
+import { API_BASE_URL } from "../constants";
 const TeacherDashboard = () => {
   const location = useLocation();
   const { name } = location.state || { name: "Teacher" }; // Default to "Teacher" if no name is passed
@@ -20,7 +20,7 @@ const TeacherDashboard = () => {
   useEffect(() => {
     // Fetch teachers data from the Flask API
     axios
-      .get("http://127.0.0.1:5000/get-teachers-api")
+      .get(`${API_BASE_URL}/get-teachers-api`)
       .then((response) => {
         setTeachers(response.data); // Set the teachers data in state
       })
